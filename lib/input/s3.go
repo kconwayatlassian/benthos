@@ -50,6 +50,11 @@ in the payload. However, it is also common practice to send bucket events to an
 SNS topic which sends enveloped events to SQS, in which case you must also set
 the ` + "`sqs_envelope_path`" + ` field to where the payload can be found.
 
+When using SQS events it's also possible to extract target bucket names from the
+events by specifying a path in the field ` + "`sqs_bucket_path`" + `. For each
+SQS event, if that path exists and contains a string it will used as the bucket
+of the download instead of the ` + "`bucket`" + ` field.
+
 Here is a guide for setting up an SQS queue that receives events for new S3
 bucket objects:
 
